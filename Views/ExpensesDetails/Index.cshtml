@@ -1,0 +1,65 @@
+﻿@model IEnumerable<ExpenseTracker.Models.ExpensesDetail>
+
+@{
+    ViewData["PageTitle"] = "Expense";
+    ViewData["PageActionText"] = "+New Expense";
+    ViewData["PageActionUrl"] = "/ExpensesDetails/AddOrEdit";
+}
+
+<div class ="row">
+    <div class="col-md-12">
+        <div class="widget p-3">
+            <table class="table">
+             <thead class="thead-gry">
+                <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th >
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+                        <th> Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td >
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                                <a class="btn btn-secondary"asp-action="AddOrEdit" asp-route-id="@item.Expensesid">Edit</a> |
+                                <a class="btn btn-warning" 
+                                      
+                                    asp-action="Delete" 
+                                    asp-route-id="@item.Expensesid">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>
+</div>
+
+
