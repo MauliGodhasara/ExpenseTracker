@@ -1,0 +1,188 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    background-color: #fcfcfc;
+    color: black;
+}
+.widget {
+    border-radius: 2rem;
+    background-color: white;
+}
+.bigger {
+    font-size: x-large;
+}
+.main-content {
+    margin-left: 290px
+}
+/*Sidebar*/
+/* The side navigation menu */
+.sidebar {
+    height: 100%;
+    width: 290px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: white;
+    overflow-x: hidden;
+    padding-top: 16px;
+}
+
+    /* Sidebar links */
+    .sidebar a {
+        display: block;
+        color: black;
+        padding: 16px;
+        text-decoration: none;
+    }
+
+        /* Active/current link */
+        .sidebar a.active {
+            background-color: #04AA6D;
+            color: white;
+        }
+
+        /* Links on mouse-over */
+        .sidebar a:hover:not(.active) {
+            background-color: #555;
+            color: white;
+        }
+
+/* Page content. The value of the margin-left property should match the value of the sidebar's width property */
+div.content {
+    margin-left: 200px;
+    padding: 1px 16px;
+    height: 100%;
+}
+
+/* On screens that are less than 700px wide, make the sidebar into a topbar */
+@media screen and (max-width: 700px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+        .sidebar a {
+            float: left;
+        }
+
+    div.content {
+        margin-left: 0;
+    }
+}
+
+/* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+@media screen and (max-width: 400px) {
+    .sidebar a {
+        text-align: center;
+        float: none;
+    }
+}
+.abc{
+    overflow:hidden
+}
+.card {
+    margin: 2px;
+    text-decoration: none
+}
+.categories{
+    margin-top:100px;
+}
+    .categories h1 {
+        margin-bottom:20px;
+        font-family: AAbril Fatface;
+        text-align:center; 
+        background:rgba(75,82,85,0.24);
+    }
+    
+.category:hover {
+    font-size: 110%;
+    border-color: yellow;
+    background-color: #33FF90;
+}
+
+.Expensess
+{
+    margin-top:100px;
+}
+    .Expensess h1 {
+        margin-bottom:20px;
+        font-family: AAbril Fatface;
+        text-align: center;
+        background: rgba(75,82,85,0.24);
+    }
+
+.TotalExpensesLimit {
+    border: 2rem;
+    margin: 10px;
+    animation:TotalExpensesLimit 3s infinite reverse;
+}
+@keyframes TotalExpensesLimit {
+    50% {
+        box-shadow: 5px 5px 5px 5px rgb(20, 148, 204,0.25);
+    }
+}
+.TotalExpenses {
+    border:2rem;
+    margin: 10px;
+    animation:TotalExpenses 3s infinite reverse;
+}
+@keyframes TotalExpenses{
+    50% {
+        box-shadow: 5px 5px 5px 5px rgb(11,218,81,0.25);
+    }
+    
+}
+
+.LimitOver {
+    border: 2rem;
+    margin: 10px;
+    animation: LimitOver 3s infinite reverse;
+}
+@keyframes LimitOver {
+    50% {
+        box-shadow: 5px 5px 5px 5px rgb(204, 12, 35,0.25);
+    }
+}
+
+    .table {
+        border-radius: 2rem;
+        background-color: white;
+        border-color: dimgrey;
+    }
+
+    #CategoryLimit {
+        border-radius: 1rem;
+        border-color: black;
+        border-width: 5px;
+        margin-bottom: 50px;
+    }
+
+    #UsedExpenses {
+        border-radius: 1rem;
+        border-color: black;
+        border-width: 5px;
+        margin-bottom: 50px;
+    }
+
+    #OverLimit {
+        border-radius: 1rem;
+        border-color: red;
+        border-width: 5px;
+        margin-bottom: 50px;
+    }
