@@ -1,0 +1,51 @@
+﻿@model IEnumerable<ExpenseTracker.Models.CategoryDetail>
+
+@{
+    ViewData["PageTitle"] = "Categories";
+    ViewData["PageActionText"] = "+New Category";
+    ViewData["PageActionUrl"] = "/CategoryDetails/Create";
+}
+
+<div class="row d-flex justify-content-center ">
+    <div class="col-md-9">
+        <div class="widget p-5">
+            <table class="table">
+                <thead class="thead-light">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Name )
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Expenseslimet)
+                        </th>
+                        <th>
+                            Actions
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Expenseslimet)
+                            </td>
+                            <td>
+                                <a class="btn btn-secondary" asp-action="Edit" asp-route-id="@item.Categoryid">Edit</a> |
+                                <a class="btn btn-warning"
+                               
+                               asp-action="Delete"
+                               asp-route-id="@item.Categoryid">Delete</a>
+
+                            </td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+﻿@model ExpenseTracker.Models.CategoryDetail
+
+@{
+    ViewData["Title"] = "Delete";
+
+}
+
+<h1>Delete</h1>
+
+<div>
+    <h4>CategoryDetail</h4>
+    <hr/>
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Expenseslimet)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Expenseslimet)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Categoryid" />
+        <input type="submit" value="Delete" class="btn btn-danger"
+               onclick="return confirm(&quot;Are sure to delete this record?&quot;)" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
