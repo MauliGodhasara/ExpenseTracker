@@ -1,0 +1,94 @@
+﻿@model IEnumerable<ExpenseTracker.Models.CategoryDetail>
+@{
+    ViewData["isDashboard"] = true;
+}
+
+@*Expenses and Limet Of Expense*@
+
+<div class="row justify-content-center">
+    <div class="col-sm-4">
+            <div class="card TotalExpensesLimit">
+                <div class="card-body" >
+                    <h4>@ViewBag.TotalExpensesLimit</h4>
+                    <h6 class="card-title">Total Expenses Limit</h6>
+                </div>
+            </div>
+    </div>
+       @if (@ViewBag.TotalExpenses < @ViewBag.TotalExpensesLimit ) {
+            <div class="col-sm-4" >
+                <div class="card TotalExpenses">
+                    <div class="card-body" >
+                        <h4>@ViewBag.TotalExpenses</h4>
+                         <h6 class="card-title" > Used Expenses </h6>
+                     </div>
+                 </div>
+             </div>
+         }
+         else{
+        <div class="col-sm-4">
+            <div class="card LimitOver">
+                <div class="card-body">
+                    <h4>@ViewBag.TotalExpenses
+                            <i class="fa fa-exclamation-circle"></i>
+                    </h4>
+                    <h6 class="card-title"> Expenses Limit over </h6>
+                    
+                </div>
+            </div>
+        </div>
+         }
+</div>
+
+@*Categorylist*@
+<section class="categories">
+    <div class="col d-flex justify-content-center">
+        <h1 class="card col-sm-5">List Of Categories</h1>
+</div>
+<div class="row">
+    @foreach(var item in ViewBag.Category)
+    {
+       <div class="col-sm-3">
+           <div class= "card category">
+                <div class="card body">
+                        <a class="text-center" style="text-decoration:none" asp-action="Expenselist" asp-route-id="@item.Categoryid">@item.Name</a>
+                 </div>
+           </div>
+       </div>
+     }
+</div>
+</section>
+
+<section class="Expensess">
+    <div class="col d-flex justify-content-center" >
+        <h1 class="card col-sm-5"> Expenses List</h1>
+    </div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="widget p-3">
+            <table class="table">
+                    <thead class="thead-gry">
+                        <tr>
+                            <th>Category</th>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th>Amount</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                <tbody>
+                    @foreach (var item in ViewBag.Expenses)
+                        {
+                            <tr>
+                                <td>@item.Category.Name</td>
+                                <td>@item.Title</td>
+                                <td>@item.Description</td>
+                                <td>@item.Amount</td>
+                                <td>@item.Date</td>
+                            </tr>
+                        }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</section>

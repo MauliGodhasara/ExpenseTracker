@@ -1,0 +1,85 @@
+﻿@model IEnumerable<ExpenseTracker.Models.ExpensesDetail>
+
+@{
+    ViewData["Title"] = "Expenselist";
+}
+
+<div class="row justify-content-center">
+    
+    <div class="col-md-4">
+            <div class="card" id="CategoryLimit">
+        <div class="card-body">
+                    <h2>@ViewBag.Categorylimit</h2>
+                <h6 class="card-title">Category Limit</h6>
+        </div>
+        </div>
+    </div>
+    @if (@ViewBag.CategoryExpenses < ViewBag.Categorylimit)
+    {
+        <div class="col-md-4">
+            <div class="card" id="UsedExpenses">
+            <div class="card-body">
+                <h2>@ViewBag.CategoryExpenses</h2>
+                <h6 class="card-title">Used Expenses</h6>
+            </div>
+            </div>
+        </div>
+      }
+    
+    else
+    {
+       <div class="col-md-4">
+            <div class="card" id="OverLimit">
+            <div class="card-body">
+                <h2>@ViewBag.CategoryExpenses
+                        <i class="fa fa-exclamation-circle"></i>
+                </h2>
+                <h6 class="card-title">Expenses Limit over</h6>
+            </div>
+            </div>
+        </div> 
+    }
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
